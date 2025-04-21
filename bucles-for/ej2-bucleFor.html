@@ -1,0 +1,125 @@
+<script>
+    let array = [];
+    let position = 0;
+    let opcion = 0;
+    let condition = "";
+    let acumulador = 0;
+    let boolean = true;
+    const menu =
+        `
+        *******************************
+        * 1_ Ingresar numeros al array *
+        * 2_ Mostrar numeros del array *
+        * 3_ Mostrar la suma de los números ingresados *
+        * 4_ Ordenar de menor a mayor los números*
+        * 5_ Devolver el numero minimo
+        * 6_ Devolver pares e impares
+        ******************************* 
+        `;
+    const agregarAlArray = (numero) => {
+        if (isNaN(numero)) {
+            console.log("No es un numero, vuelva a intentarlo.");
+            return;
+        }
+        else {
+            array[position] = numero;
+            position++;
+        }
+    };
+    const mostrarNumeros = () => {
+        for (let x = 0; x < array.length; x++) {
+            console.log(`${array[x]}`);
+        }
+    };
+    const devolverMinimo = array => {
+        if (array === undefined || array.length === 0) {
+            console.log("No hay numeros en el array");
+            return;
+        }
+        else {
+            console.log(Math.min(...array));
+        }
+    };
+    const numeroParoImpar = numero => {
+
+        if (numero == 0) {
+            return true;
+        }
+        if (numero == 1) {
+            return false;
+        }
+        if (numero > 1) {
+            return numeroParoImpar(numero - 2);
+        }
+        if (numero < 0) {
+            return numeroParoImpar(-numero);
+        }
+    }
+    console.log("Bienvenido al programa de numeros");
+    while (boolean == true) {
+        opcion = parseInt(prompt(`${menu}Ingrese una opcion del menu: `));
+
+        switch (opcion) {
+            case 1:
+                do {
+                    let numeroAlArray = parseInt(prompt("Ingrese un numero para almacenarlo en el array: "));
+                    agregarAlArray(numeroAlArray);
+                    condition = prompt("Desea continuar ingresando numeros? s/n: ").toLowerCase();
+                } while (condition === "s");
+                break;
+            case 2:
+                console.log("Numeros ingresados: " + "</br>");
+                mostrarNumeros();
+                break;
+            case 3:
+                for (let x = 0; x < array.length; x++) {
+                    acumulador = acumulador + array[x];
+                }
+                console.log(`La suma de los numeros es: ${acumulador}`);
+                acumulador = 0;
+                break;
+
+            case 4:
+                for (let x = 0; x < array.length; x++) {
+                    for (let y = 0; y < (array.length - x - 1); y++) {
+                        if (array[y] > array[y + 1]) {
+                            let temp = array[y];
+                            array[y] = array[y + 1];
+                            array[y + 1] = temp;
+                        }
+                    }
+
+                }
+                for (let z = 0; z < array.length; z++) {
+                    console.log(`${array[z]}`);
+                }
+                boolean = false;
+                break;
+
+            case 5:
+                console.log("Número mínimo");
+                devolverMinimo(array);
+                break;
+            case 6:
+                for (let x = 0; x < array.length; x++) {
+                    let result = numeroParoImpar(array[x]);
+                    if (result) {
+                        console.log(`${array[x]} es par? Si`);
+                    } else {
+                        console.log(`${array[x]} es par? No pa`);
+
+                    }
+                }
+                boolean = false;
+                break;
+            default:
+                console.log("No ha ingresado una opcion valida.");
+                break;
+        }
+
+    }
+
+
+
+
+</script>

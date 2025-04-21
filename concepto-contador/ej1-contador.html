@@ -1,0 +1,32 @@
+<!-- Escribir un programa que lea 10 notas de alumnos y nos informe cuántos tienen notas mayores o iguales a 7 y 
+cuántos menores -->
+
+<script>
+    let contador = 1;
+    let nota = 0;
+    let notasMayoresA7 = 0;
+    let notasMenoresA7 = 0;
+    let arraynotasMayoresA7 = [];
+    let arraynotasMenoresA7 = [];
+
+    while (contador <= 10) {
+        nota = parseInt(prompt(`Ingrese la nota ${contador}: `));
+        while (!Number(nota)) {
+            nota = parseInt(prompt(`Error. Ingrese un numero entero como nota ${contador}: `));
+        }
+        if (nota >= 7) {
+            arraynotasMayoresA7[notasMayoresA7] = nota;
+            notasMayoresA7++;
+        } else if (nota < 7) {
+            arraynotasMenoresA7[notasMenoresA7] = nota;
+            notasMenoresA7++;
+        }
+
+        contador++;
+    }
+
+    document.write(`Alumnos con notas mayores a 7: ${notasMayoresA7} </br>`);
+    document.write(`Notas: ${arraynotasMayoresA7} </br>`);
+    document.write(`Alumnos con notas menores a 7: ${notasMenoresA7} </br>`);
+    document.write(`Notas: ${arraynotasMenoresA7} </br>`);
+</script>

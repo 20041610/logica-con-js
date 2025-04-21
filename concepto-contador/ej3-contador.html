@@ -1,0 +1,30 @@
+<!-- En una empresa trabajan 5 empleados cuyos sueldos oscilan entre $100 y $500, 
+realizar un programa que lea los sueldos que cobra cada empleado e informe cuántos empleados cobran entre $100 y $300 y 
+cuántos cobran más de $300. Además el programa deberá informar el importe que gasta la empresa en sueldos al personal. -->
+
+<script>
+    let contador = 0;
+    let sueldoEmpleado = 0;
+    let sueldos1 = 0; //Contador de sueldos de entre 100 y 300 USD
+    let sueldos2 = 0; //Contador de sueldos mayores a 300 USD
+    let importeTotalSueldos = 0; //Acumulador para sumar cada sueldo y obtener el importe total en sueldos
+    while (contador < 5) {
+        sueldoEmpleado = parseFloat(prompt(`Ingrese el sueldo del empleado ${contador + 1} (entre 100 y 500 USD): `));
+        while (sueldoEmpleado < 100 || sueldoEmpleado > 500 || !Number(sueldoEmpleado)) {
+            sueldoEmpleado = parseFloat(prompt(`Error. Debe ingresar un número entero que se encuentre entre 100 y 500. Ingrese el sueldo del empleado ${contador + 1}: `));
+        }
+        if (sueldoEmpleado >= 100 && sueldoEmpleado <= 300) {
+            sueldos1++;
+        }
+        if (sueldoEmpleado > 300 && sueldoEmpleado <= 500) {
+            sueldos2++;
+        }
+        importeTotalSueldos = importeTotalSueldos + sueldoEmpleado;
+        contador++;
+    }
+    document.write(`La empresa gasta ${importeTotalSueldos} en sueldos. </br>`);
+    document.write(`Empleados con sueldos entre 100 y 300 USD: ${sueldos1} </br>`);
+    document.write(`Empleados con sueldos mayores a 300 USD: ${sueldos2}`);
+
+
+</script>

@@ -1,0 +1,16 @@
+<!-- Se ingresa por teclado un número positivo de uno o dos dígitos (1..99) mostrar un mensaje indicando si el número tiene
+uno o dos dígitos (recordar de convertir a entero con parseInt para preguntar posteriormente por una variable entera). 
+Tener en cuenta qué condición debe cumplirse para tener dos dígitos un número entero. -->
+
+<script>
+    let num1 = parseInt(prompt("Ingrese un numero: "));
+    if ((num1 >= 10 && num1 <= 99) || (num1 <= -10 && num1 >= -99)) {
+        document.write(`El numero ingresado es el ${num1} y tiene dos digitos.`);
+    } else if ((num1 >= 100 && num1 <= 999) || (num1 <= -100 && num1 >= -999)) {
+        document.write(`El numero ingresado es el ${num1} y tiene tres digitos`);
+    } else if ((num1 >= 1 && num1 <= 9) || (num1 <= -1 && num1 >= -9)) {
+        document.write(`El numero ingresado es ${num1} y tiene solo un digito.`);
+    } else {
+        document.write(`El numero ingresado es ${num1} y tiene mas de tres digitos.`);
+    }
+</script>

@@ -1,0 +1,52 @@
+<!-- Se realizó un censo provincial y se desea procesar la información obtenida en dicho censo. 
+De cada una de las personas censadas se tiene la siguiente información: número de documento, edad y sexo ('femenino' o 'masculino')
+Se pide confeccionar un programa que lea los datos de cada persona censada 
+(para finalizar ingresar el valor cero en el número de documento) e informar:
+
+a)	Cantidad total de personas censadas.
+b)	Cantidad de varones.
+c)	Cantidad de mujeres.
+d)	Cantidad de varones cuya edad varía entre 16 y 65 años. -->
+
+<script>
+    let numDocumento;
+    let edadPersona;
+    let sexoPersona;
+    let cantPersonas = 0;
+    let cantMujeres = 0;
+    let cantHombres = 0;
+    let cantHombresEdad = 0;
+
+    do {
+        numDocumento = (prompt("Ingrese el número de documento de la persona (0 para finalizar): "));
+
+        if (parseInt(numDocumento) > 0) {
+            while (numDocumento.length < 8 || parseInt(numDocumento) < 0) {
+                numDocumento = prompt("Error. Deber tener 8 dígitos. Ingrese el número de documento nuevamente: ");
+            }
+            edadPersona = Number(prompt("Ingrese la edad de la persona: "));
+            while (Number.isNaN(edadPersona) || parseInt(edadPersona) < 0) {
+                edadPersona = Number(prompt("Error. Ingrese un número entero positivo como edad: "));
+            }
+            sexoPersona = prompt("Ingrese el sexo de la persona (M/F/NB): ");
+            if (sexoPersona == 'M') {
+                if (edadPersona >= 16 && edadPersona <= 65) {
+                    cantHombresEdad++;
+                }
+                cantHombres++;
+            } else if (sexoPersona == 'F') {
+                cantMujeres++;
+            }
+
+            cantPersonas++;
+        }
+    } while (numDocumento > 0);
+
+    document.write("Resultados del censo: </br>");
+    document.write(`Cantidad de personas censadas: ${cantPersonas}</br> `);
+    document.write(`Cantidad de mujeres: ${cantMujeres}</br>`);
+    document.write(`Cantidad de hombres: ${cantHombres}</br>`);
+    document.write(`Cantidad de hombres de entre 16 y 65 años: ${cantHombresEdad}</br>`);
+    document.write(`DNI: ${numDocumento}</br>`);
+    document.write(`Edad ingresada: ${edadPersona}</br>`);
+</script>

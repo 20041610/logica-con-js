@@ -1,0 +1,33 @@
+<script>
+    let continuar = "";
+    let numero = 0;
+    do {
+        numeroElegido = parseInt(prompt("Ingrese un numero entero positivo o negativo: "));
+        if (isNaN(numeroElegido)) {
+            alert("No ha ingresado un número.");
+        } else {
+            let result = isEven(numeroElegido);
+            alert(`El número ${numeroElegido} es par? ${result}`);
+
+        }
+        continuar = prompt("Desea continuar? (s/n): ").toLowerCase().trim();
+
+    } while (continuar === "s");
+
+    function isEven(numero) {
+        if (numero < 0) {
+            return isEven(-numero);
+        }
+        if (numero == 0) {
+            return true
+        }
+        if (numero == 1) {
+            return false
+        }
+        if (numero > 1) {
+            return isEven(numero - 2);
+        }
+    }
+
+
+</script>

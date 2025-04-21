@@ -1,0 +1,46 @@
+<!-- En un banco se procesan datos de las cuentas corrientes de sus clientes. 
+De cada cuenta corriente se conoce: número de cuenta, nombre del cliente y saldo actual. 
+El ingreso de datos debe finalizar al ingresar un valor negativo en el número de cuenta.
+Se pide confeccionar un programa que lea los datos de las cuentas corrientes e informe:
+a) De cada cuenta: número de cuenta, nombre del cliente y estado de la cuenta según su saldo, sabiendo que:
+Estado de la cuenta	'Acreedor' si el saldo es >0.
+			'Deudor' si el saldo es <0.
+			'Nulo' si el saldo es =0.
+b) La suma total de los saldos acreedores. -->
+
+<script>
+    let numeroDeCuenta = 0;
+    let nombreCliente = 0;
+    let saldoCliente = 0;
+    let saldoAcreedorTotal = 0;
+    document.write("Clientes registrados:  </br>");
+    do {
+        numeroDeCuenta = parseInt(prompt("Ingrese el numero de cuenta del cliente (o un número negativo para finalizar): "));
+        if (numeroDeCuenta > 0) {
+            nombreCliente = prompt(`Ingrese el nombre del cliente con número de cuenta ${numeroDeCuenta}: `);
+
+            saldoCliente = parseFloat(prompt("Ingrese el saldo actual del cliente: "));
+
+            document.write(`Número de cuenta: ${numeroDeCuenta} </br>`);
+
+            document.write(`Nombre del cliente: ${nombreCliente}</br>`);
+
+            document.write(`Su saldo es: $${saldoCliente}</br>`);
+
+            if (saldoCliente > 0) {
+                document.write("Estado de cuenta: Acreedor. </br> </br>");
+                saldoAcreedorTotal += saldoCliente;
+            }
+            if (saldoCliente < 0) {
+                document.write("Estado de cuenta: Deudor. </br> </br>");
+            }
+            if (saldoCliente == 0) {
+                document.write("Estado de cuenta: Nulo. </br> </br>");
+            }
+
+
+        }
+    } while (numeroDeCuenta > 0);
+    document.write(`El saldo acreedor total es de: $${saldoAcreedorTotal}.`);
+
+</script>

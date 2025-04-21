@@ -1,0 +1,16 @@
+<script>
+    //Stop gninnipS My sdroW!
+    function reverseString(string) {
+        let arrayFinal = string.split(" ");
+        for (let x = 0; x < arrayFinal.length; x++) {
+            if (arrayFinal[x].length >= 5) {
+                arrayFinal[x] = (arrayFinal[x].split("").reverse().join(""));
+            }
+        }
+        return arrayFinal.join(" ");
+
+    }
+    let resultado = reverseString("perdonen la molestia");
+    console.log(resultado);
+
+</script>

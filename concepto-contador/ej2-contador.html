@@ -1,0 +1,19 @@
+<!-- Se ingresan un conjunto de 5 alturas de personas por teclado. Mostrar la altura promedio de las personas. -->
+
+<script>
+    let contador = 0;
+    let alturaDePersona = 0;
+    let sumaDeAlturas = 0; //Suma de todas las alturas ingresadas
+    let promedioDeAltura = 0; // Variable donde voy a guardar la altura promedio
+
+    while (contador < 5) {
+        alturaDePersona = parseFloat(prompt(`Ingrese la altura de la persona ${contador + 1} en cm: `));
+        while (alturaDePersona < 15 || !Number(alturaDePersona)) {
+            alturaDePersona = parseFloat(prompt(`Error. Debe ingresar un numero entero mayor a 15 como altura de la persona ${contador + 1}: `));
+        }
+        sumaDeAlturas = sumaDeAlturas + alturaDePersona;
+        contador++;
+    }
+    promedioDeAltura = sumaDeAlturas / contador;
+    document.write(`Altura promedio de las personas medidas: ${promedioDeAltura} cm.`);
+</script>

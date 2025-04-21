@@ -1,0 +1,28 @@
+<!-- Realizar un programa que pida cargar una fecha cualquiera, luego verificar si dicha fecha corresponde a Navidad 
+(se debe cargar por separado el dia, el mes y el año) -->
+
+<script>
+    let año = parseInt(prompt("Ingrese el año: "));
+    let mes = prompt("Ingrese el nombre del mes: ").trim();
+    let dia;
+    switch (mes) {
+        case 'enero': {
+            dia = parseInt(prompt("Ingrese el dia: "));
+            break;
+        }
+        case 'diciembre': {
+            dia = parseInt(prompt("Ingrese el dia de este mes: "));
+            break;
+        }
+        default: {
+            document.write("No ingresaste un mes.");
+            break;
+        }
+    }
+    if (mes == 'diciembre' && dia == 25) {
+        document.write(`La fecha ingresada es ${dia}/${mes}/${año}. Es navidad.`);
+    } else {
+        document.write(`La fecha ingresada es ${dia}/${mes}/${año}. No es navidad.`);
+
+    }
+</script>

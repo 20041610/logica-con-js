@@ -1,0 +1,15 @@
+<!-- Realizar un programa que lea por teclado dos números, si el primero es mayor al segundo informar su suma y diferencia,
+en caso contrario informar el producto y la división del primero respecto al segundo. -->
+
+<script>
+    num1 = parseInt(prompt("Ingrese el primer numero: "));
+    num2 = parseInt(prompt("Ingrese el segundo numero: "));
+
+    if (num1 > num2) {
+        document.write(`La suma de los dos numeros es: ${num1 + num2}</br>`);
+        document.write(`La resta de los dos numeros es: ${num1 - num2}`);
+    } else {
+        document.write(`El producto entre ambos numeros es: ${num1 * num2}</br>`);
+        document.write(`La división entre ambos numeros es: ${num1 / num2}`);
+    }
+</script>
